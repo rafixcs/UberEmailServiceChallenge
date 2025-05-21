@@ -13,7 +13,7 @@ import (
 
 type AwsSimpleEmailService struct{}
 
-func (AwsSimpleEmailService) SendEmail() error {
+func (AwsSimpleEmailService) SendEmail(emailContent SendEmailContent) error {
 	ctx := context.Background()
 
 	cfg, err := config.LoadDefaultConfig(ctx)
@@ -25,18 +25,18 @@ func (AwsSimpleEmailService) SendEmail() error {
 	client := ses.NewFromConfig(cfg)
 
 	input := &ses.SendEmailInput{
-		Source: aws.String("rafael.camargo.rs+dev01@gmail.com"),
+		Source: aws.String(emailContent.Source),
 		Destination: &types.Destination{
-			ToAddresses: []string{"rafaelcs.dev.br@gmail.com"},
+			ToAddresses: []string{emailContent.Destination},
 		},
 		Message: &types.Message{
 			Subject: &types.Content{
-				Data:    aws.String("Hello from Go + AWS SES"),
+				Data:    aws.String(emailContent.Subject),
 				Charset: aws.String("UTF-8"),
 			},
 			Body: &types.Body{
 				Text: &types.Content{
-					Data:    aws.String("This is a test email sent with aws ses and go!"),
+					Data:    aws.String(emailContent.Content),
 					Charset: aws.String("UTF-8"),
 				},
 			},
