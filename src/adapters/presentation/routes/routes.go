@@ -6,5 +6,7 @@ import (
 )
 
 func LoadRoutes(r *chi.Mux) {
-	routes.LoadEmailRoutes(r)
+	r.Route("/api", func(r chi.Router) {
+		routes.LoadEmailRoutes(r)
+	})
 }
