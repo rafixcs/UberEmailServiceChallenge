@@ -5,7 +5,7 @@
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazonaws&logoColor=white)
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
-This project is an API built using **Golang and AWS Simple Email Service**
+This project is an API built using **Golang and AWS Simple Email Service**. This is an simple challenge from [uber coding challenge](https://github.com/uber-archive/coding-challenge-tools/blob/master/coding_challenge.md).
 
 
 ## Table of Contents
